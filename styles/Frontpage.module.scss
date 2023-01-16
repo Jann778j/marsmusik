@@ -113,8 +113,10 @@
   height: 100vh;
   z-index: 2;
 
+
   article {
     height: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,7 +140,6 @@
 
     h2 {
       transition: 0.3s;
-
       text-shadow: 3px 3px #41ffff;
       transform: scale(1.1);
     }

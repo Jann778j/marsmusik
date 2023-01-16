@@ -45,6 +45,7 @@
 .fat{
       font-weight: bolder;
      margin-right: 1rem;
+     padding: 0 5px;
     }
 
  
@@ -81,7 +82,7 @@
     position: sticky;
     bottom: 0;
     width: 100vw;
-    height: 220px;
+    min-height:fit-content;
 
 
     h3 {
@@ -100,13 +101,28 @@
   
   .mobileBasket {
     display: flex;
-    gap: 13px;
+    gap: 10px;
     justify-content: center;
     border-bottom:1px solid #510926;
     margin-bottom: 1rem;
-  }
+
+    .borderny{
+        border-left: 1px solid #510926;
+        padding: 0 7px;
+      
+      }
+      }
+
+     
+
+  
   .basketTimer {
     text-align: center;
+  }
+
+  .fat{
+    padding: 0 5px;
+        margin-right: 0rem;
   }
 
 }

@@ -27,7 +27,7 @@ function Act(props) {
           <div className={props.data.stage}></div>
 
           {startsWith ? (
-            <img src={props.data.logo.toString()} />
+            <img alt={props.data.name} src={props.data.logo.toString()} />
           ) : (
             <img
               alt={props.data.logoCredits}

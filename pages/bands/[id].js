@@ -21,7 +21,7 @@ export default function Artist({ data }) {
         <h1>{data[0].name}</h1>
         <div className="artist_grid">
           {startsWith ? (
-            <img src={data[0].logo.toString()} />
+            <img alt={data[0].name} src={data[0].logo.toString()} />
           ) : (
             <img
               alt={data[0].logoCredits}

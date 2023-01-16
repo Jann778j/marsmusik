@@ -69,6 +69,7 @@ export default function Home() {
         <a href="#banner">
           <div className="arrow">
             <img
+              alt="pil"
               style={{ width: "70px", zIndex: "100000" }}
               className="pil"
               src="/pil.svg"

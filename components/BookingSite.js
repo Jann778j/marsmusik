@@ -58,15 +58,18 @@ function BookingSite() {
   return (
     <>
       {showThankYou ? (
-        <ThankYouSite setShowThankYou={setShowThankYou}></ThankYouSite>
+        <ThankYouSite
+          setShowThankYou={setShowThankYou}
+          setShowBasket={setShowBasket}
+        ></ThankYouSite>
       ) : (
         <div className="bodybody">
           <div className="booking_bg"></div>
           <div className="ticket"></div>
           <h1>Tickets</h1>
           <h3>
-            Select your choise of tickets, choose a campsite and add extras to make your stay even
-            more comfortable.
+            Select your choise of tickets, choose a campsite and add extras to
+            make your stay even more comfortable.
           </h3>
           <Tickets
             // her henter fortæller vi hvilket data de forskellige components skal hente ind så de kan bruges

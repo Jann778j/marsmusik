@@ -52,7 +52,11 @@ function Basket(props) {
     } else if (props.counterGreenCamp == 0) {
       setShowPrebuildThree(false);
     }
-  }, [props.counterGreenCamp, props.counterPrebuildThree, props.counterPrebuildTwo]);
+  }, [
+    props.counterGreenCamp,
+    props.counterPrebuildThree,
+    props.counterPrebuildTwo,
+  ]);
 
   // sætter prisen på campingspot til 99,- hvis der er valgt et campingspot
   useEffect(() => {
@@ -89,7 +93,9 @@ function Basket(props) {
 
                 <span className="small">
                   <span> VIP </span>
-                  <span className="fat">{props.counterVIP * prices.priceVIP},-</span>
+                  <span className="fat">
+                    {props.counterVIP * prices.priceVIP},-
+                  </span>
                 </span>
               </li>
             )}
@@ -97,7 +103,7 @@ function Basket(props) {
               <li>
                 <span className="fat">{props.counterREG}</span>
                 <span className="small">
-                  <span> Standard</span>
+                  <span> Standard </span>
                   <span className="fat">
                     {props.counterREG * prices.priceREG}
                     ,-
@@ -107,7 +113,7 @@ function Basket(props) {
             )}
           </ul>
         </div>
-        <div>
+        <div className="borderny">
           <h4>CAMPING</h4>
           <p>
             {/* Campingspot er sat til "None" indtil der er showPickedCamping er true. Det valgte campingspot indsættes i p-tagget. */}
@@ -116,13 +122,14 @@ function Basket(props) {
                 "None"
               ) : (
                 <>
-                  <span>{props.pickedCamping}</span> <span className="fat"> 99,-</span>
+                  <span>{props.pickedCamping}</span>{" "}
+                  <span className="fat"> 99,-</span>
                 </>
               )}
             </span>
           </p>
         </div>
-        <div>
+        <div className="borderny">
           <h4>EXTRAS</h4>
           <ul>
             {showGreenCamp && (
