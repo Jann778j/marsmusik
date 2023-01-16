@@ -23,7 +23,7 @@ function TickerCell(props) {
         style={{
           fontFamily: `${xanhMonoReg.style.fontFamily}`,
         }}
-        // suppressHydrationWarning
+        suppressHydrationWarning
       >
         {props.value}
       </p>
