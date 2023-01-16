@@ -44,6 +44,7 @@ export default function Layout(props) {
       <Head>
         <title>MARS MUSIK 2125</title>
         <link rel="icon" type="image/x-icon" href="/logo.svg"></link>
+        <meta name="description" content="a music festival site"></meta>
       </Head>
       <div className={roboto.className}>
         <header>
