@@ -118,6 +118,7 @@ export default function Layout(props) {
             </Anchor>
             <Anchor href="#facebook" alt="facebook">
               <svg
+                alt="facebook"
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
                 height="30"
