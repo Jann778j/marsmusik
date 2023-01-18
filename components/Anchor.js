@@ -12,6 +12,8 @@ export default function Anchor({ href, className, children }) {
       }}
       href={href}
       className={className}
+      title={title}
+      aria-label={aria - label}
     >
       {children}
     </a>
