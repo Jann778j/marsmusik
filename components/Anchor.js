@@ -12,7 +12,7 @@ export default function Anchor({ href, className, children }) {
       }}
       href={href}
       className={className}
-      title={title}
+      title={href}
     >
       {children}
     </a>
