@@ -12,6 +12,7 @@ function PaymentForm(props) {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [cvv, setCvv] = useState("");
+  const [email, setEmail] = useState("");
 
   function submit(e) {
     e.preventDefault();
@@ -85,6 +86,17 @@ function PaymentForm(props) {
     }
   }
 
+  function onInputEmail(e) {
+    const { value } = e.target;
+
+    if (e.target.id === "email") {
+      const rex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (value === "" || rex.test(value)) {
+        setEmail(value);
+      }
+    }
+  }
+
   return (
     <>
       <section id="paymentform">
@@ -107,6 +119,7 @@ function PaymentForm(props) {
             <label htmlFor="email">
               E-mail
               <input
+                onChange={onInputEmail}
                 type="email"
                 id="email"
                 name="email"
@@ -121,12 +134,24 @@ function PaymentForm(props) {
 
             <label htmlFor="address">
               Address
-              <input type="text" id="address" name="address" required placeholder="Address" />
+              <input
+                type="text"
+                id="address"
+                name="address"
+                required
+                placeholder="Address"
+              />
             </label>
             <div className="flexit">
               <label htmlFor="city">
                 City
-                <input type="text" id="city" name="city" required placeholder="City" />
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  required
+                  placeholder="City"
+                />
               </label>
               <label htmlFor="zipcode">
                 Zip code
