@@ -120,6 +120,7 @@ function PaymentForm(props) {
               E-mail
               <input
                 onChange={onInputEmail}
+                value={email}
                 type="email"
                 id="email"
                 name="email"
