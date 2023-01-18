@@ -12,7 +12,6 @@ function PaymentForm(props) {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [cvv, setCvv] = useState("");
-  const [error, setError] = useState(null);
 
   function submit(e) {
     e.preventDefault();
@@ -86,18 +85,6 @@ function PaymentForm(props) {
     }
   }
 
-  function isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-  }
-
-  function handleBlur(event) {
-    if (!isValidEmail(event.target.value)) {
-      setError("Email is invalid");
-    } else {
-      setError(null);
-    }
-  }
-
   return (
     <>
       <section id="paymentform">
@@ -124,14 +111,12 @@ function PaymentForm(props) {
                 id="email"
                 name="email"
                 placeholder="abc@gmail.com"
-                // aria-describedby="hint-mail"
+                aria-describedby="hint-mail"
                 required
-                onBlur={handleBlur}
               />
-              {/* <span className="error" id="err-mail" aria-live="assertive">
+              <span className="error" id="err-mail" aria-live="assertive">
                 Type in your email address
-              </span> */}
-              <span>{error}</span>
+              </span>
             </label>
 
             <label htmlFor="address">
