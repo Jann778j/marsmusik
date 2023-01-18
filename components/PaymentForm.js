@@ -12,8 +12,6 @@ function PaymentForm(props) {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [cvv, setCvv] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [error, setError] = useState(null);
 
   function submit(e) {
@@ -88,16 +86,9 @@ function PaymentForm(props) {
     }
   }
 
-  // validate the email
   function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   }
-
-  const handleChange = (event) => {
-    //console.log(!isValidEmail(event.target.value));
-    setMessage(event.target.value);
-    finishedAdding();
-  };
 
   function handleBlur(event) {
     if (!isValidEmail(event.target.value)) {
@@ -106,16 +97,6 @@ function PaymentForm(props) {
       setError(null);
     }
   }
-
-  //   const { value } = e.target;
-
-  //   if (e.target.id === "email") {
-  //     const rex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  //     if (value === "" || rex.test(value)) {
-  //       setEmail(value);
-  //     }
-  //   }
-  // }
 
   return (
     <>
@@ -139,24 +120,18 @@ function PaymentForm(props) {
             <label htmlFor="email">
               E-mail
               <input
-                onChange={handleChange}
-                value={message}
-                onBlur={handleBlur}
                 type="email"
                 id="email"
                 name="email"
                 placeholder="abc@gmail.com"
-                aria-describedby="hint-mail"
+                // aria-describedby="hint-mail"
                 required
+                onBlur={handleBlur}
               />
-              <span
-                onchange={error}
-                className="error"
-                id="err-mail"
-                aria-live="assertive"
-              >
+              {/* <span className="error" id="err-mail" aria-live="assertive">
                 Type in your email address
-              </span>
+              </span> */}
+              <span>{error}</span>
             </label>
 
             <label htmlFor="address">
