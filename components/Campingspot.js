@@ -16,7 +16,7 @@ function Campingspot(props) {
 
   // vi bruger useeffect så vi kun henter data når det er nødvndigt (så det ikke looper unødvsndigt meget)
   useEffect(() => {
-    // hvad betyder ref.current???
+    // hvad betyder ref.current??? - refererer til den nuværende valgte?
     const campingspot = ref.current;
 
     // her siger vi at hvis tallet avilible indeholder et mindre tal end den valgte billet mængde

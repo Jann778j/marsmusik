@@ -11,27 +11,37 @@ function Tickets(props) {
   // - det skal bla. bruges til at tjekke om der er nok ledige camping spots
   const ticketAmount = props.counterREG + props.counterVIP;
 
-  const ticketholdersREG = Array.from({ length: props.counterREG }, (_, index) => {
-    return (
-      <TicketHolderREG
-        key={index}
-        ticketHolderArr={props.ticketHolderArr}
-        ticketHolders={props.ticketHolders}
-        setTicketHolders={props.setTicketHolders}
-      ></TicketHolderREG>
-    );
-  });
+  //laver et nyt array der er ligeså langt som det antal reg biletter man har valgt
+  //  - arrayet indeholder ticketholder-komponenter x antal gange
+  // vi bruger den til at lave flere af dete samme elemnter (fx. ticketholders) -markus har laveet det
+  //hver gang der bliver tilføjet en ny tucketholder bliver den pushet ind i arrayet
+  const ticketholdersREG = Array.from(
+    { length: props.counterREG },
+    (_, index) => {
+      return (
+        <TicketHolderREG
+          key={index}
+          ticketHolderArr={props.ticketHolderArr}
+          ticketHolders={props.ticketHolders}
+          setTicketHolders={props.setTicketHolders}
+        ></TicketHolderREG>
+      );
+    }
+  );
 
-  const ticketholdersVIP = Array.from({ length: props.counterVIP }, (_, index) => {
-    return (
-      <TicketHolderVIP
-        key={index}
-        ticketHolderArr={props.ticketHolderArr}
-        ticketHolders={props.ticketHolders}
-        setTicketHolders={props.setTicketHolders}
-      ></TicketHolderVIP>
-    );
-  });
+  const ticketholdersVIP = Array.from(
+    { length: props.counterVIP },
+    (_, index) => {
+      return (
+        <TicketHolderVIP
+          key={index}
+          ticketHolderArr={props.ticketHolderArr}
+          ticketHolders={props.ticketHolders}
+          setTicketHolders={props.setTicketHolders}
+        ></TicketHolderVIP>
+      );
+    }
+  );
 
   function sendExtras() {
     console.log("does this run???");
@@ -60,13 +70,16 @@ function Tickets(props) {
           {/* showCamping state sættes til true for at få vist campingspots. 
           Knappen fjernes når statet ikke længere er false */}
           {!props.showCamping && (
-            <button onClick={() => props.setShowCamping(true)} className="continueBtn">
+            <button
+              onClick={() => props.setShowCamping(true)}
+              className="continueBtn"
+            >
               Continue
             </button>
           )}
           <div className="camping-wrapper">
-            {/*  */}
-            {/* det her skal forklares bedre !!! */}
+            {/* alt det der kommer efter && bliver retuneret når det der kommer før && er blevet opfyldt  */}
+            {/* fx. at man har valgt tickets og trykket videre før den går videre til campingspot */}
             {props.showCamping && (
               <>
                 <h3>Pick a campingsite</h3>
@@ -122,7 +135,10 @@ function Tickets(props) {
             </>
           ) : null}
           {props.showTicketHolder && !props.showPaymentForm && (
-            <button onClick={() => props.setShowPaymentForm(true)} className="continueBtn">
+            <button
+              onClick={() => props.setShowPaymentForm(true)}
+              className="continueBtn"
+            >
               Continue
             </button>
           )}

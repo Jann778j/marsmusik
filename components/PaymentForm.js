@@ -114,7 +114,9 @@ function PaymentForm(props) {
                 aria-describedby="hint-mail"
                 required
               />
-              <span className="error">Type in your email address</span>
+              <span className="error" id="err-mail" aria-live="assertive">
+                Type in your email address
+              </span>
             </label>
 
             <label htmlFor="address">

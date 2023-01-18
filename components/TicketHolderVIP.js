@@ -36,7 +36,7 @@ function TicketHolderVIP(props) {
   // validate name
   const onInputChange = (e) => {
     const { value } = e.target;
-    console.log("Input value: ", value);
+    // console.log("Input value: ", value);
 
     const re = /^[A-ø a-ø]+$/;
     if (value === "" || re.test(value)) {
