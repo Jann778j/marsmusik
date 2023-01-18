@@ -9,7 +9,6 @@ function ThankYouSite(props) {
       <div className="thank_container">
         <h1>Thank you!</h1>
         <h3>Booking has been sent</h3>
-        <Basket></Basket>
         <button>
           <Anchor href="/"> Back to Home</Anchor>
         </button>
