@@ -70,6 +70,8 @@ export default function Home() {
           <div className="arrow">
             <img
               alt="pil"
+              width={"70px"}
+              height={"100%"}
               style={{ width: "70px", zIndex: "100000" }}
               className="pil"
               src="/pil.svg"
