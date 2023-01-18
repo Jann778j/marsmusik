@@ -13,6 +13,8 @@ function PaymentForm(props) {
   const [year, setYear] = useState("");
   const [cvv, setCvv] = useState("");
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(null);
 
   function submit(e) {
     e.preventDefault();
@@ -86,16 +88,34 @@ function PaymentForm(props) {
     }
   }
 
-  function onInputEmail(e) {
-    const { value } = e.target;
+  // validate the email
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
 
-    if (e.target.id === "email") {
-      const rex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-      if (value === "" || rex.test(value)) {
-        setEmail(value);
-      }
+  const handleChange = (event) => {
+    //console.log(!isValidEmail(event.target.value));
+    setMessage(event.target.value);
+    finishedAdding();
+  };
+
+  function handleBlur(event) {
+    if (!isValidEmail(event.target.value)) {
+      setError("Email is invalid");
+    } else {
+      setError(null);
     }
   }
+
+  //   const { value } = e.target;
+
+  //   if (e.target.id === "email") {
+  //     const rex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //     if (value === "" || rex.test(value)) {
+  //       setEmail(value);
+  //     }
+  //   }
+  // }
 
   return (
     <>
@@ -119,8 +139,9 @@ function PaymentForm(props) {
             <label htmlFor="email">
               E-mail
               <input
-                onChange={onInputEmail}
-                value={email}
+                onChange={handleChange}
+                value={message}
+                onBlur={handleBlur}
                 type="email"
                 id="email"
                 name="email"
@@ -128,7 +149,12 @@ function PaymentForm(props) {
                 aria-describedby="hint-mail"
                 required
               />
-              <span className="error" id="err-mail" aria-live="assertive">
+              <span
+                onchange={error}
+                className="error"
+                id="err-mail"
+                aria-live="assertive"
+              >
                 Type in your email address
               </span>
             </label>
